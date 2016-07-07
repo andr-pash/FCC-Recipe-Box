@@ -1,0 +1,252 @@
+$red-bg: #E47164
+$red-border: #A34941
+$lightgreen-bg: #C2EABE
+$green-bg: #70E464
+$green-border: #4FB143
+$beige-bg: #DCDFCA
+$header-bg: #65B0C7
+$icon-size: 15px
+$shadow-big: 0 0 15px #000
+$text-grey: #7D7D7B
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300|Cutive+Mono)
+
+html,
+body,
+h3,
+h5
+  margin: 0
+  font-family: 'Lato'
+
+
+
+.app-shell
+  min-height: 640px
+  margin: 0
+  position: relative
+
+header
+  background:
+    color: $header-bg
+  position: fixed
+  width: 100%
+  top: 0
+  height: 70px
+  z-index: 1000
+  box-shadow: $shadow-big
+  color: white
+  h1
+    font-weight: 100
+    margin-top: 30px
+    margin-left: 10px
+    padding: 0
+    text-transform: uppercase
+    word-spacing: 20px
+
+
+.recipe-container
+  margin-top: 70px 
+  margin-bottom: 100px
+
+.recipe:after
+  content: ''
+  display: block
+  height: 1px
+  background: linear-gradient( 90deg , black, rgba(0,0,0,0) 60%)
+
+.recipe__header
+  padding-left: 10px
+  // height: 125px
+  h3
+    font-weight: 300
+    color: black
+    font-size: 24px
+  h5
+    font-weight: 100
+    color: $text-grey
+    font-family: 'Cutive Mono'
+  
+.recipe__detail
+  min-height: 120px
+  box-shadow: inset 0 0 5px #000, 0 0 0 10px  $beige-bg inset
+  padding: 15px
+  position: relative
+  opacity: 1
+  transition: all 0.2s cubic-bezier(0, 0.4, 0.41, 1.25)
+
+
+.ingredient-container
+  width: 50%
+  list-style-type: none
+  position: relative
+  margin-top: 0
+  margin-bottom: 30px
+  li
+    position: relative
+    margin-left: -35px
+    // margin-bottom: 5px
+
+.ingredient-name
+  font-size: 22px
+  font-weight: 300
+
+.ingredient-quantity
+  font-size: 10px
+  margin-left: 5px
+  color: $text-grey
+  font-family: 'Cutive Mono'
+  font-weight: 100
+
+.ingredient-form
+  input
+    border: none
+    border-radius: 0
+    border-bottom: 1px solid black
+    width: 80px
+    margin-right: 10px
+  
+  position: absolute
+  bottom: 15px
+  display: inline-block
+
+.ingredient-form__btn
+  position: absolute
+  bottom: 15px
+  right: 15px
+
+
+.btn__cont
+  position: absolute
+  top: 15px
+  right: 15px
+
+  
+.btn
+  width: 70px
+  height: 30px
+  background: $green-bg
+  border:
+    radius: 10px
+    color: $green-border
+    width: 1px
+    style: solid
+  text-align: center
+  color: white
+  font-weight: 100
+  font-family: 'Cutive Mono'
+
+.btn--delete
+  background: $red-bg
+  border: 1px solid $red-border
+  position: absolute
+  top: 15px
+  right: 15px
+
+.delete-icon
+  max-height: $icon-size
+  max-width: $icon-size
+  position: absolute
+  right: 0
+  top: 10%
+  cursor: pointer
+  display: flex
+  justify-content: center
+  
+
+.delete-icon.edit
+  display: inline
+  
+.ingredient-form
+  display: none
+
+
+.ingredient-form.edit
+  display: block
+
+.add-recipe__open-btn
+  background: $lightgreen-bg
+  height: 80px
+  position: fixed
+  width: 100%
+  bottom: 0
+  z-index: 900
+  box-shadow: $shadow-big
+  text-transform: uppercase
+  text-align: center
+  text-shadow: 0 0 20px #000
+
+.add-recipe__plus
+  font-size: 60px
+  font-weight: 300
+  line-height: 40px
+
+.add-recipe__text
+  font-weight: 100
+
+
+
+.add-recipe__form
+  width: 100%
+  height: 100%
+  background: $beige-bg
+  position: fixed
+  top: 0
+  left: 0 
+  transform: translateY(120%)
+  transition: transform 0.25s cubic-bezier(0, 0.4, 0.41, 1.25)
+  z-index: 900
+  border-radius: 20px
+  box-shadow: $shadow-big
+
+
+  &--is-open
+    transform: translateY(80%)
+    z-index: 1000
+    box-shadow: $shadow-big
+
+  input
+    display: block
+    margin: 15px auto
+    width: 80%
+    height: 36px
+    font-size: 24px
+    border:
+      radius: 10px
+      style: none
+
+
+
+.add-recipe__add-btn
+  display: block
+  margin: auto
+  width: 80%
+
+
+.add-recipe__close-btn
+  position: absolute
+  top: 15px
+  right: 30px
+  &::before
+    content: ''
+    display: block
+    width: 20px
+    height: 2px
+    background: black
+    transform: rotate(45deg)
+    position: absolute
+  &::after
+    content: ''
+    display: block
+    width: 20px
+    height: 2px
+    background: black
+    transform: rotate(-45deg)
+    position: absolute
+  
+  
+.hidden
+  min-height: 0px
+  height: 0px
+  opacity: 0
+  padding: 0
+  visibility: hidden
